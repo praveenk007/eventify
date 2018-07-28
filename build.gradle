@@ -33,5 +33,7 @@ dependencies {
 	compile('com.turtle:ifttt:1.0.0.2')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	compile 'io.projectreactor:reactor-core'
+    compile 'com.graphql-java:graphql-spring-boot-starter:3.6.0'
+	compile 'com.graphql-java:graphql-java-tools:3.2.0'
 	testCompile('io.projectreactor:reactor-test')
 }
