@@ -9,5 +9,7 @@ import reactor.core.publisher.Mono;
  **/
 public interface IRuleEngineService {
 
-    Flux<RuleEngineMaster> getNMatches(String nMatchId);
+    Mono<Long> getN(String nMatchId);
+
+    Flux<RuleEngineMaster> getNMatches(String nMatchId, int pageNumber, int pageSize);
 }
