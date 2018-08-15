@@ -1,5 +1,6 @@
 package com.ifttt.iftttservice.models;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
@@ -20,7 +21,7 @@ public class RuleEngineMaster {
     private String matchId;
     private String vertical;
     private String returnType;
-    Map<String, Object> conditions;
+    JsonNode conditions;
 
     public String getMatchId() {
         return matchId;
@@ -54,11 +55,11 @@ public class RuleEngineMaster {
         this.id = id;
     }
 
-    public Map<String, Object> getConditions() {
+    public JsonNode getConditions() {
         return conditions;
     }
 
-    public void setConditions(Map<String, Object> conditions) {
+    public void setConditions(JsonNode conditions) {
         this.conditions = conditions;
     }
 

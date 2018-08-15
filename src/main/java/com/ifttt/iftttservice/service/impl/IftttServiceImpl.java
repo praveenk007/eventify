@@ -1,6 +1,7 @@
 package com.ifttt.iftttservice.service.impl;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.ifttt.abstracts.impl.RuleEngineJsonImpl;
 import com.ifttt.iftttservice.models.RuleEngineMaster;
 import com.ifttt.iftttservice.service.IIftttService;
 import com.ifttt.iftttservice.service.IRuleEngineService;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -44,13 +46,18 @@ public class IftttServiceImpl implements IIftttService<JsonNode> {
         return null;
     }
 
-    private long getTotalPages(Long val) {
-        long totalPages;
-        if(val % PAGE_SIZE == 0) {
-            totalPages = val / PAGE_SIZE;
-        } else {
-            totalPages = (val / PAGE_SIZE) + 1;
+    private JsonNode applyRule(JsonNode rule, JsonNode facts) throws Exception {
+        if(rule == null || facts == null) {
+            return null;
         }
-        return totalPages;
+        JsonNode op = new RuleEngineJsonImpl().runThis(rule).against(facts).execute();
+        System.out.println("op :: " + op);
+        return op;
+    }
+
+    private long getTotalPages(Long val) {
+        if(val % PAGE_SIZE == 0) {
+            return val / PAGE_SIZE;
+        } return (val / PAGE_SIZE) + 1;
     }
 }
