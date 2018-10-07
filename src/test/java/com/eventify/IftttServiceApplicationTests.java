@@ -1,4 +1,4 @@
-package com.ifttt.iftttservice;
+package com.eventify;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

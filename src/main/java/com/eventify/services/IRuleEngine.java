@@ -1,4 +1,4 @@
-package com.ifttt.iftttservice.services;
+package com.eventify.services;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import reactor.core.publisher.Mono;

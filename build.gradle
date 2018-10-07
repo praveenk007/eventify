@@ -15,7 +15,7 @@ apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
-group = 'com.ifttt'
+group = 'com.eventify'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
@@ -30,8 +30,9 @@ dependencies {
     compileOnly('org.projectlombok:lombok')
     compile('org.springframework.boot:spring-boot-starter-data-mongodb-reactive')
     compile('org.springframework.boot:spring-boot-starter-webflux')
-	compile('com.turtle:ifttt:1.0.0.3')
+	compile('com.turtle:ifttt:1.0.0.4')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	compile 'io.projectreactor:reactor-core'
 	testCompile('io.projectreactor:reactor-test')
+	compile("com.aerospike:aerospike-client:3.1.0")
 }

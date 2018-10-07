@@ -1,4 +1,4 @@
-package com.ifttt.iftttservice.models;
+package com.eventify.models;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import lombok.AllArgsConstructor;
@@ -21,7 +21,7 @@ public class RuleEngineMaster {
     private String matchId;
     private String vertical;
     private String returnType;
-    JsonNode conditions;
+    Map<String, Object> conditions;
 
     public String getMatchId() {
         return matchId;
@@ -55,11 +55,11 @@ public class RuleEngineMaster {
         this.id = id;
     }
 
-    public JsonNode getConditions() {
+    public Map<String, Object> getConditions() {
         return conditions;
     }
 
-    public void setConditions(JsonNode conditions) {
+    public void setConditions(Map<String, Object> conditions) {
         this.conditions = conditions;
     }
 

@@ -1,4 +1,4 @@
-package com.ifttt.iftttservice.models;
+package com.eventify.models;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -9,12 +9,12 @@ import org.springframework.stereotype.Component;
  **/
 @Data
 @Component
-@ConfigurationProperties(prefix="mongo.db")
-public class MongoConfiguration {
+@ConfigurationProperties(prefix="aero")
+public class AerospikeConfiguration {
 
     private String url;
 
-    private String database;
+    private String namespace;
 
     private String userName;
 
@@ -28,12 +28,12 @@ public class MongoConfiguration {
         this.url = url;
     }
 
-    public String getDatabase() {
-        return database;
+    public String getNamespace() {
+        return namespace;
     }
 
-    public void setDatabase(String database) {
-        this.database = database;
+    public void setNamespace(String namespace) {
+        this.namespace = namespace;
     }
 
     public String getUserName() {
@@ -50,15 +50,5 @@ public class MongoConfiguration {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    @Override
-    public String toString() {
-        return "MongoConfiguration{" +
-                "url='" + url + '\'' +
-                ", database='" + database + '\'' +
-                ", userName='" + userName + '\'' +
-                ", password='" + password + '\'' +
-                '}';
     }
 }
